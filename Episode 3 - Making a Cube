@@ -1,0 +1,40 @@
+package mygame;
+
+import com.jme3.app.SimpleApplication;
+import com.jme3.material.Material;
+import com.jme3.math.ColorRGBA;
+import com.jme3.renderer.RenderManager;
+import com.jme3.scene.Geometry;
+import com.jme3.scene.shape.Box;
+
+public class Main extends SimpleApplication {
+
+    
+    public static void main(String[] args) {   
+      Main m = new Main();//Create a new instance of this class
+      m.start();//Calling a method in the SimpleApplication class which starts everything in our game
+    }
+    
+    //This method gets called at the start of our app
+    @Override
+    public void simpleInitApp() {
+      Box b = new Box(1, 1, 1); // Define the shape our geometry will be (a box(cubeoid) in this case)
+      Geometry geometry = new Geometry("Box", b); // Create our geometry and send it the shape deffinition
+      Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");// Set our matterial from a file
+      mat.setColor("Color", ColorRGBA.Cyan); // Set the color of the material
+      geometry.setMaterial(mat); // Put the material on the geometry
+     
+      rootNode.attachChild(geometry);//Attach the geometry to the root node so it is displayed on the screen
+    }
+    
+    //Method not used in this tutorial
+    @Override
+    public void simpleUpdate(float tpf) {
+      
+    }
+    //Method not used in this tutorial
+    @Override
+    public void simpleRender(RenderManager rm) {
+        
+    }
+}
